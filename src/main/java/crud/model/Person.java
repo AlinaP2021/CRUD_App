@@ -1,22 +1,25 @@
-package crud.models;
+package crud.model;
+
+import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
+
+@Component
 public class Person {
     private int id;
 
-    @NotEmpty(message = "Имя не должно быть пустым")
-    @Size(min = 2, max = 30, message = "Имя должно содержать от 2 до 30 символов")
+    @Size(min = 2, max = 30, message = "{person.name.size}")
     private String name;
 
-    @Min(value = 0, message = "Возраст должен быть больше 0")
+    @Min(value = 0, message = "{person.age.min}")
     private int age;
 
-    @NotEmpty(message = "Email не должен быть пустым")
-    @Email
+    @NotEmpty(message = "{person.email.notempty}")
+    @Email(message = "{person.email}")
     private String email;
 
     public Person(int id, String name, int age, String email) {

@@ -1,0 +1,22 @@
+table {
+border: 1px solid;
+border-collapse: collapse;
+}
+
+table th, table td {
+padding: 5px;
+border: 1px solid;
+}
+
+span {
+display: inline-block;
+padding: 5px 0px;
+}
+
+input {
+margin: 5px 0px;
+}
+
+.error {
+color: red;
+}

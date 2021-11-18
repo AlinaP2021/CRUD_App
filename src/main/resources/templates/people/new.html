@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
     <title>New person</title>
 </head>
 <body>
 
+<h1>Create a new person</h1>
+
 <form th:method="POST" th:action="@{/people}" th:object="${person}">
     <label for="name">Enter name: </label>
     <input type="text" th:field="*{name}" id="name">
-    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+    <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
     <br>
     <label for="age">Enter age: </label>
     <input type="text" th:field="*{age}" id="age">
-    <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</div>
+    <span class="error" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></span>
     <br>
     <label for="email">Enter e-mail: </label>
     <input type="text" th:field="*{email}" id="email">
-    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</div>
+    <span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
     <br>
     <input type="submit" value="Create">
 </form>
